@@ -7,7 +7,7 @@ var os = require('os');
 
 describe('typescript:app', function () {
   before(function (done) {
-    helpers.run(path.join(__dirname, '../generators/app'))
+    helpers.run(path.join(__dirname, '../app'))
       .withOptions({ skipInstall: true })
       .withPrompts({ someOption: true })
       .on('end', done);
