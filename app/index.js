@@ -264,44 +264,44 @@ module.exports = yeoman.generators.Base.extend({
       
       // Copy the bower.json file.
       this.fs.copyTpl(
-        this.templatePath('test/bower.json'),
-        this.destinationPath('test/bower.json'),
+        this.templatePath('test/typescript/bower.json'),
+        this.destinationPath('test/typescript/bower.json'),
         this.variables,
         this.matcher
       );
       
       // Copy the .bowerrc file.
       this.fs.copyTpl(
-        this.templatePath('test/.bowerrc'),
-        this.destinationPath('test/.bowerrc')
+        this.templatePath('test/typescript/.bowerrc'),
+        this.destinationPath('test/typescript/.bowerrc')
       );
       
       // Copy the karma.conf.js file.
       this.fs.copyTpl(
-        this.templatePath('test/karma.conf.js'),
-        this.destinationPath('test/karma.conf.js'),
+        this.templatePath('test/typescript/karma.conf.js'),
+        this.destinationPath('test/typescript/karma.conf.js'),
         this.variables,
         this.matcher
       );
       
       // Copy the tsd.json file.
       this.fs.copyTpl(
-        this.templatePath('test/tsd.json'),
-        this.destinationPath('test/tsd.json')
+        this.templatePath('test/typescript/tsd.json'),
+        this.destinationPath('test/typescript/tsd.json')
       );
       
       // Copy the tsd.json file.
       this.fs.copyTpl(
-        this.templatePath('test/tsd.conf.json'),
-        this.destinationPath('test/tsd.conf.json'),
+        this.templatePath('test/typescript/tsd.conf.json'),
+        this.destinationPath('test/typescript/tsd.conf.json'),
         this.variables,
         this.matcher
       );
       
       // Copy the app.test.js file.
       this.fs.copyTpl(
-        this.templatePath('test/src/app.test.ts'),
-        this.destinationPath('test/src/app.test.ts'),
+        this.templatePath('test/typescript/src/app.test.ts'),
+        this.destinationPath('test/typescript/src/app.test.ts'),
         this.variables,
         this.matcher
       );
