@@ -12,12 +12,4 @@ describe('typescript:app', function () {
       .withPrompts({ someOption: true })
       .on('end', done);
   });
-
-  it('creates files', function () {
-    assert.file([
-      'package.json',
-      '.editorconfig',
-      '.jshintrc'
-    ]);
-  });
 });
