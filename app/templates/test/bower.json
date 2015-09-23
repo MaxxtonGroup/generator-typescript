@@ -1,0 +1,10 @@
+{
+  "name": "<%= lcBaseName %>",
+  "version": "1.0.0",
+  "author": "<%= author %>",
+  "dependencies": {
+  <% if (isAngular) { %>
+    "angular-mocks": "latest"
+  <% } %>
+  }
+}

@@ -1,0 +1,10 @@
+# Ignore the following folders
+**/node_modules/**
+**/public/**
+**/build/**
+**/typings/**
+**/libraries/**
+
+# Exlcusions
+!**/public/bower.json
+!**/public/.bowerrc
