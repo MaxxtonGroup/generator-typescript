@@ -23,10 +23,11 @@ gulp.task('install-source', function() { return gulp.src('tsd.json', { cwd: 'src
 gulp.task('install-test', function() {  return bower({cwd: 'test/typescript', cmd: 'install'}).pipe(gulp.src('tsd.json', { cwd: 'test/typescript'}).pipe(tsd())); });
 
 // Tasks to compile and run the source code.
-gulp.task('run', function() {
+gulp.task('run', ['compile-typescript', 'compile-sass', 'compile-web'], function() {
 	browser.init({server: "./public"});
 	gulp.watch('src/typescript/src/**/*.ts', ['compile-typescript']);
 	gulp.watch('src/sass/src/**/*.scss', ['compile-sass']);
+	gulp.watch('src/web/src/**/*', ['compile-web']);
 	gulp.watch('public/**/*.html').on('change', browser.reload);
 });
 
@@ -42,8 +43,14 @@ gulp.task('compile-sass', function(){
 		.pipe(gulp.dest('public/resources/css/'));
 });
 
+gulp.task('compile-web', function(){
+	gulp.src('src/web/src/**/*')
+		.pipe(gulp.dest('public/'));
+});
+
 // Tasks to compile and run the test code.
-gulp.task('test', function() {
+gulp.task('test', ['compile-typescript', 'compile-test'], function() {
+	gulp.watch('src/typescript/src/**/*.ts', ['compile-typescript']);
 	gulp.watch('test/typescript/src/**/*.ts', ['compile-test']);
 	new Server({configFile: __dirname + '/test/typescript/karma.conf.js', singleRun: false}).start();
 });

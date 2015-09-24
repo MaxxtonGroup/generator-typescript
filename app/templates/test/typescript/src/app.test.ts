@@ -1,7 +1,6 @@
 /// <reference path="../typings/karma/karma" />
 /// <reference path="../typings/mocha/mocha" />
 /// <reference path="../typings/sinon-chai/sinon-chai" />
-/// <reference path="../typings/app/app.d.ts" />
 <% if (isAngular) { %>
 /// <reference path="../typings/angularjs/angular" />
 /// <reference path="../typings/angularjs/angular-mocks" />

@@ -1,6 +1,6 @@
 <% if (isApp) { %>
 <% if (isAngular) { %>
-/// <reference path="../typings/angular/angular.d.ts" />
+/// <reference path="../typings/angularjs/angular.d.ts" />
 	
 module <%= packageName %> {
 	'use strict';
