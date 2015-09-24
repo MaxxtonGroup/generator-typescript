@@ -25,7 +25,7 @@ var createAppName = function(str) {
 module.exports = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
-    var maxPrompt = 7;
+    var maxPrompt = 8;
 
     this.log(
       yosay() + '\n\n' +
@@ -53,20 +53,32 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         type: 'string',
+        name: 'repo',
+        message: '(3/'+ maxPrompt + ') What will the repository of this project be?',
+        default: 'MaxxtonGroup/awesome-module'
+      },
+      {
+        type: 'string',
+        name: 'license',
+        message: '(3/'+ maxPrompt + ') What is the license for this project?',
+        default: 'MIT'
+      },
+      {
+        type: 'string',
         name: 'userName',
-        message: '(3/'+ maxPrompt +') What is your name?',
+        message: '(4/'+ maxPrompt +') What is your name?',
         default: 'M. Axxton'
       },
       {
         type: 'string',
         name: 'userEmail',
-        message: '(4/'+ maxPrompt +') What is your email?',
+        message: '(5/'+ maxPrompt +') What is your email?',
         default: 'm.axxton@maxxton.com'
       },
       {
         type: 'list',
         name: 'projectType',
-        message: '(5/'+ maxPrompt +') What kind of project will you be working on?',
+        message: '(6/'+ maxPrompt +') What kind of project will you be working on?',
         choices: [
           {
             name: 'Application (This project will be some kind of (web) application)',
@@ -81,13 +93,13 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'confirm',
         name: 'angularApp',
-        message: '(6/'+ maxPrompt +') Will this be used as an Angular project?',
+        message: '(7/'+ maxPrompt +') Will this be used as an Angular project?',
         default: true
       },
       {
         type: 'confirm',
         name: 'callNpm',
-        message: '(7/'+ maxPrompt +') Shall I fetch the dependencies for your project?',
+        message: '(8/'+ maxPrompt +') Shall I fetch the dependencies for your project?',
         default: true
       },
     ];
@@ -111,7 +123,9 @@ module.exports = yeoman.generators.Base.extend({
         author: this.props.auhtor,
         lcBaseName: this.props.appName.toLowerCase(),
         hcBaseName: this.props.appName,
-        isAngular: this.props.angularApp
+        isAngular: this.props.angularApp,
+        repo: this.props.repo,
+        license: this.props.license
       };
       
       this.matcher =
