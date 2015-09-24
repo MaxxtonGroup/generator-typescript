@@ -324,5 +324,9 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
+    if(this.props.callNpm) {
+      this.log(chalk.green('\nFetching NPM dependencies\n'));
+      this.npmInstall();
+    }
   }
 });
