@@ -17,10 +17,13 @@ var browser = require('browser-sync').create();
  */
 
 // Tasks to install the project in the current directory
-gulp.task('install', ['install-public', 'install-source', 'install-test']);
-gulp.task('install-public', function() { return bower({cwd: 'public', cmd: 'install'}).pipe(gulp.src(['public/libraries/**/*'], {cwd: '.'})).pipe(gulp.dest('test/typescript/build/libraries')); });
-gulp.task('install-source', function() { return gulp.src('tsd.json', { cwd: 'src/typescript'}).pipe(tsd()).pipe(gulp.src(['src/typescript/typings/**/*'], {cwd: '.'})).pipe(gulp.dest('test/typescript/typings')) });
-gulp.task('install-test', function() {  return bower({cwd: 'test/typescript', cmd: 'install'}).pipe(gulp.src('tsd.json', { cwd: 'test/typescript'}).pipe(tsd())); });
+gulp.task('install', ['install-public', 'install-source', 'install-test'], function(){
+	gulp.src('src/typescript/typings/**/*').pipe(gulp.dest('test/typescript/typings'));
+	gulp.src(['public/libraries/**/*'], {cwd: '.'}).pipe(gulp.dest('test/typescript/build/libraries')); 
+});
+gulp.task('install-public', function() { return bower({cwd: 'public', cmd: 'install'}); });
+gulp.task('install-source', function() { return gulp.src('src/typescript/tsd.json').pipe(tsd()); });
+gulp.task('install-test', function() { return bower({cwd: 'test/typescript', cmd: 'install'}).pipe(gulp.src('tsd.json', { cwd: 'test/typescript'}).pipe(tsd()));});
 
 // Tasks to compile and run the source code.
 gulp.task('run', ['compile-typescript', 'compile-sass', 'compile-web'], function() {
