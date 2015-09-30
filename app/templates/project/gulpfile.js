@@ -37,12 +37,14 @@ gulp.task('run', ['compile-typescript', 'compile-sass', 'compile-web'], function
 
 gulp.task('compile-typescript', function() {
 	var result = gulp.src('./src/typescript/src/app.ts').pipe(tsc({out: 'src/typescript/typings/app/app.js', declaration: true, target: 'ES5'}, {cwd: ''}));
-	result = merge([result.dts.pipe(gulp.dest('test/typescript/typings/app')), result.js.pipe(gulp.dest('test/typescript/build'))]);
-	gulp.src('test/typescript/build/src/typescript/typings/app/**/*').pipe(gulp.dest('test/typescript/build'));
-	gulp.src('test/typescript/build/src', {read: false}).pipe(clean());
-	gulp.src('test/typescript/typings/app/src/typescript/typings/app/**/*').pipe(gulp.dest('test/typescript/typings/app'));
-	gulp.src('test/typescript/typings/app/src', {read: false}).pipe(clean());
-	return result.pipe(browser.stream());
+	result = merge([result.dts.pipe(gulp.dest('public/resources/app')), result.js.pipe(gulp.dest('public/resources/app'))]).on('end', function() {;
+		gulp.src('public/resources/app/src/typescript/typings/app/**').pipe(gulp.dest('public/resources/app')).on('end', function() {;
+			gulp.src('public/resources/app/**.js').pipe(gulp.dest('test/typescript/build'));
+			gulp.src('public/resources/app/**.d.ts').pipe(gulp.dest('test/typescript/typings/app'));
+			gulp.src('public/resources/app/src').pipe(clean());
+			return result.pipe(browser.stream());
+		});
+	});
 });
 
 gulp.task('compile-sass', function(){
