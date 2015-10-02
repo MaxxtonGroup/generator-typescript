@@ -25,7 +25,7 @@ var createAppName = function(str) {
 module.exports = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
-    var maxPrompt = 8;
+    var maxPrompt = 9;
 
     this.log(
       yosay() + '\n\n' +
@@ -60,25 +60,25 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'string',
         name: 'license',
-        message: '(3/'+ maxPrompt + ') What is the license for this project?',
+        message: '(4/'+ maxPrompt + ') What is the license for this project?',
         default: 'MIT'
       },
       {
         type: 'string',
         name: 'userName',
-        message: '(4/'+ maxPrompt +') What is your name?',
+        message: '(5/'+ maxPrompt +') What is your name?',
         default: 'M. Axxton'
       },
       {
         type: 'string',
         name: 'userEmail',
-        message: '(5/'+ maxPrompt +') What is your email?',
+        message: '(6/'+ maxPrompt +') What is your email?',
         default: 'm.axxton@maxxton.com'
       },
       {
         type: 'list',
         name: 'projectType',
-        message: '(6/'+ maxPrompt +') What kind of project will you be working on?',
+        message: '(7/'+ maxPrompt +') What kind of project will you be working on?',
         choices: [
           {
             name: 'Application (This project will be some kind of (web) application)',
@@ -93,13 +93,13 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'confirm',
         name: 'angularApp',
-        message: '(7/'+ maxPrompt +') Will this be used as an Angular project?',
+        message: '(8/'+ maxPrompt +') Will this be used as an Angular project?',
         default: true
       },
       {
         type: 'confirm',
         name: 'callNpm',
-        message: '(8/'+ maxPrompt +') Shall I fetch the dependencies for your project?',
+        message: '(9/'+ maxPrompt +') Shall I fetch the dependencies for your project?',
         default: true
       },
     ];

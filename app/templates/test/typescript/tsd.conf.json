@@ -39,8 +39,7 @@
 		},
 		"sinon/sinon.d.ts": {
 			"commit": "09e37435ffb2c56a6f908081194a74756f24f99d"
-		},
-		<% if (isAngular) { %>
+		}<% if (isAngular) { %>,
 		"angularjs/angular-mocks.d.ts": {
 			"commit": "09e37435ffb2c56a6f908081194a74756f24f99d"
 		},
