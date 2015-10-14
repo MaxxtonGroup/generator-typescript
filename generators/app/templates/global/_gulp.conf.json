@@ -1,0 +1,6 @@
+{
+	"projectname": "<%= projectname %>",
+	"projecttype": "<%= projecttype %>",
+	"angular": <%= isangular %>,
+	"sass": <%= issass %>
+}

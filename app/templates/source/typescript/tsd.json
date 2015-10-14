@@ -1,5 +1,0 @@
-{
-	"command": "reinstall",
-	"latest": true,
-	"config": "src/typescript/tsd.conf.json"
-}

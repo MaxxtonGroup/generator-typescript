@@ -1,0 +1,9 @@
+{
+  "timeout": 30000,
+  "registry": {
+    "search": [
+      "http://mxt-maven01.newyse.maxxton:5678",
+      "https://bower.herokuapp.com"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+# Ignore these folders/files
+node_modules/
+bower_components/
+definitions/
+
+# Exclude these folders/files from that

@@ -1,4 +1,4 @@
-# Module <%= hcBaseName %>
+# <%= projectname %>
 
 Simple description placeholder.
 
