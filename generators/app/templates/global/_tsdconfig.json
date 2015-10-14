@@ -5,7 +5,15 @@
 	"path": "definitions",
 	"bundle": "src/tsd.d.ts",
 	"installed": {
-		<% if(isangular) { %>
+		"karma/karma.d.ts": {
+			"commit": "23fa2dbebe0e91d5907897781f27a0a945ae1439"
+		},
+		"mocha/mocha.d.ts": {
+			"commit": "23fa2dbebe0e91d5907897781f27a0a945ae1439"
+		},
+		"sinon-chai/sinon-chai.d.ts": {
+			"commit": "23fa2dbebe0e91d5907897781f27a0a945ae1439"
+		}<% if(isangular) { %>,
 		"angularjs/angular.d.ts": {
 			"commit": "23fa2dbebe0e91d5907897781f27a0a945ae1439"
 		},

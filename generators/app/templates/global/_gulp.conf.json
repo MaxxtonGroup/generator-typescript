@@ -2,5 +2,13 @@
 	"projectname": "<%= projectname %>",
 	"projecttype": "<%= projecttype %>",
 	"angular": <%= isangular %>,
-	"sass": <%= issass %>
+	"sass": <%= issass %>,
+	"karmafiles": [
+		<% if (isangular) { %>
+		"bower_components/angular/angular.js",
+		"bower_components/angular-mocks/angular-mocks.js",
+		"bower_components/angular-ui-router/release/angular-ui-router.js",<% } %>
+		<% if (projecttype === "app") { %>"public/assets/js/<%= projectname %>.js",<% } else { %>"dist/<%= projectname %>.js",<% } %>
+		"test/build/<%= projectname %>.js"
+	]
 }

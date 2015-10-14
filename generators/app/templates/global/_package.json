@@ -13,7 +13,13 @@
 		"gulp-typescript": "~2.9.2",
 		"gulp-tsd": "~0.0.4",
 		"gulp-sass": "~2.0.4",
-		"merge2": "~0.3.6"<% if(projecttype === "app") { %>,
+		"gulp-karma-runner": "~1.1.8",
+		"merge2": "~0.3.6",
+		"karma-mocha": "~0.2.0",
+		"karma-chai": "~0.1.0",
+		"karma-chrome-launcher": "~0.2.1",
+		"mocha": "~2.3.3",
+		"chai": "~3.3.0"<% if(projecttype === "app") { %>,
 		"express": "~4.13.3"<% } %>
 	}
 }

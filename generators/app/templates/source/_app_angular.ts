@@ -17,7 +17,7 @@ module <%=packagename%> {
 	};
 	
 	export var app = angular
-		.module('<%=packagename%>.<%=projectname%>', ['ui.router'])
+		.module('<%=packagename%>', ['ui.router'])
 		.config(['$stateProvider', '$urlRouterProvider', configure])
 		.run([execute]);
 }

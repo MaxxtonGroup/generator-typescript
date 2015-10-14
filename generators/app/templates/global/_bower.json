@@ -8,7 +8,7 @@
 	],
 	"dependencies": {
 		<% if (isangular) { %>"angular": "~1.4.7",
-		"angular-ui-router": "~0.2.15" <% } %><% if (issass) { %>,
-		"foundation-apps": "~1.1.0"<% } %>
+		"angular-mocks": "~1.4.7",
+		"angular-ui-router": "~0.2.15"<% } %>
 	}
 }

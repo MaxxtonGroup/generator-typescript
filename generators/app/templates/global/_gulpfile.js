@@ -8,11 +8,24 @@ var tsc = require('gulp-typescript');
 var merge = require('merge2');
 var tsd = require('gulp-tsd');
 var sass = require('gulp-sass');
+var karma = require("gulp-karma-runner"); 
 
 /**
  * Load configuration
  */
 var config = require('./gulp.conf.json');
+
+/**
+ * Functions
+ */
+
+function getBuildDir() {
+	if(config.projecttype === "app") {
+		return 'public/**/*.js';
+	}else{
+		return 'dist/**/*.js';
+	}
+}
 
 /**
  * Default task
@@ -26,6 +39,7 @@ gulp.task('default', ['install']);
 gulp.task('install', function(callback) {
 	tsd({
 		command: 'reinstall',
+		"latest": true,
 		config: './tsdconfig.json'
 	}, callback);
 });
@@ -39,6 +53,9 @@ gulp.task('compile', function() {
 		}
 	}
 	
+	var test = gulp.src('test/' + config.projectname + '-test.ts').pipe(tsc('tsconfig.json'));
+	test.js.pipe(gulp.dest('test/build'));
+	
 	var result = gulp.src('src/' + config.projectname + '.d.ts').pipe(tsc('tsconfig.json'));
 	if(config.projecttype === "app") {
 		return result.js.pipe(gulp.dest('public/assets/js/'));
@@ -48,13 +65,30 @@ gulp.task('compile', function() {
 });
 
 gulp.task('compile-watch', ['compile'], function() {
-	
+	gulp.watch('src/**/*.ts', ['compile']);
+	gulp.watch('src/sass/**/*.scss', ['compile']);
 });
 
-gulp.task('test', function() {
-	gulp.watch('src/**/*.ts', ['']);
+gulp.task('test', ['compile'], function() {
+	
+	gulp.src(config.karmafiles, {"read": false}).pipe(
+		karma.server({
+			'singleRun': false,
+			'quit': true,
+			'frameworks': ['mocha', 'chai'],
+      'browsers': ['Chrome']
+		})
+	);
 });
 
 gulp.task('test-watch', ['test'], function() {
-	
+	gulp.watch(['src/**/*.ts', 'test/**/*.ts'], ['compile'], function() {
+		gulp.src(config.karmafiles, {"read": false}).pipe(
+			karma.runner({
+				'singleRun': false,
+				'frameworks': ['mocha', 'chai'],
+				'browsers': ['Chrome']
+			})
+		);
+	});
 });
