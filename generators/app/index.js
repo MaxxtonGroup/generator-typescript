@@ -144,7 +144,9 @@ module.exports = yeoman.generators.Base.extend({
       
       this.fs.copyTpl(
         this.templatePath('global/_gulpfile.js'),
-        this.destinationPath('gulpfile.js')
+        this.destinationPath('gulpfile.js'),
+        this.variables,
+        this.matcher
       );
       
       this.fs.copyTpl(

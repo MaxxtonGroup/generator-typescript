@@ -70,13 +70,15 @@ gulp.task('compile-watch', ['compile'], function() {
 });
 
 gulp.task('test', ['compile'], function() {
-	
 	gulp.src(config.karmafiles, {"read": false}).pipe(
 		karma.server({
 			'singleRun': false,
 			'quit': true,
 			'frameworks': ['mocha', 'chai'],
-      'browsers': ['Chrome']
+      'browsers': ['Chrome'],
+				'reporters': ['progress', 'coverage'],
+				'preprocessors': { <% if (projecttype === "app") { %>'public/assets/js/<%= projectname %>.js'<% } else { %>'dist/<%= projectname %>.js'<% } %>: ['coverage'] },
+				'coverageReporter': { type: 'html', dir: 'test/report/' }
 		})
 	);
 });
@@ -87,7 +89,10 @@ gulp.task('test-watch', ['test'], function() {
 			karma.runner({
 				'singleRun': false,
 				'frameworks': ['mocha', 'chai'],
-				'browsers': ['Chrome']
+				'browsers': ['Chrome'],
+				'reporters': ['progress', 'coverage'],
+				'preprocessors': { <% if (projecttype === "app") { %>'public/assets/js/<%= projectname %>.js'<% } else { %>'dist/<%= projectname %>.js'<% } %>: ['coverage'] },
+				'coverageReporter': { type: 'html', dir: 'test/report/' }
 			})
 		);
 	});
