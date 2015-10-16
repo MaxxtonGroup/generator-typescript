@@ -3,7 +3,7 @@
 		<title><%= projectname %></title>
 		<% if(issass) { %><link rel="stylesheet" type="text/css" href="assets/css/<%= projectname %>.css"><% } %>
 	</head>
-	<body ng-app="<%= packagename %>.<%= projectname %>">
+	<body ng-app="<%= projectname %>">
 		<h1>Typescript project</h1>
 		<ui-view></ui-view>
 		<% if(isangular) { %><script src="vendors/angular/angular.js"></script>

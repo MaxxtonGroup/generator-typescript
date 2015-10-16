@@ -7,6 +7,7 @@ var gulp = require('gulp');
 var tsc = require('gulp-typescript');
 var merge = require('merge2');
 var tsd = require('gulp-tsd');
+var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var karma = require("gulp-karma-runner"); 
 
@@ -56,11 +57,11 @@ gulp.task('compile', function() {
 	var test = gulp.src('test/' + config.projectname + '-test.ts').pipe(tsc('tsconfig.json'));
 	test.js.pipe(gulp.dest('test/build'));
 	
-	var result = gulp.src('src/' + config.projectname + '.d.ts').pipe(tsc('tsconfig.json'));
+	var result = gulp.src('src/' + config.projectname + '.d.ts').pipe(sourcemaps.init()).pipe(tsc('tsconfig.json'));
 	if(config.projecttype === "app") {
-		return result.js.pipe(gulp.dest('public/assets/js/'));
+		return result.js.pipe(sourcemaps.write('.')).pipe(gulp.dest('public/assets/js/'));
 	}else{
-		return merge([result.dts.pipe(gulp.dest('dist/')), result.js.pipe(gulp.dest('dist/'))]);
+		return merge([result.dts.pipe(gulp.dest('dist/')), result.js.pipe(sourcemaps.write('.')).pipe(gulp.dest('dist/'))]);
 	}
 });
 
