@@ -54,10 +54,10 @@ gulp.task('compile', function() {
 		}
 	}
 	
-	var test = gulp.src('test/' + config.projectname + '-test.ts').pipe(tsc('tsconfig.json'));
+	var test = gulp.src('test/' + config.projectname + '-test.ts').pipe(tsc('tsconfig.test.json'));
 	test.js.pipe(gulp.dest('test/build'));
 	
-	var result = gulp.src('src/' + config.projectname + '.d.ts').pipe(sourcemaps.init()).pipe(tsc('tsconfig.json'));
+	var result = gulp.src('src/project.d.ts').pipe(sourcemaps.init()).pipe(tsc('tsconfig.json'));
 	if(config.projecttype === "app") {
 		return result.js.pipe(sourcemaps.write('.')).pipe(gulp.dest('public/assets/js/'));
 	}else{

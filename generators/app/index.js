@@ -176,6 +176,13 @@ module.exports = yeoman.generators.Base.extend({
         this.variables,
         this.matcher
       );
+
+      this.fs.copyTpl(
+        this.templatePath('global/_tsconfig.test.json'),
+        this.destinationPath('tsconfig.test.json'),
+        this.variables,
+        this.matcher
+      );
       
       this.fs.copyTpl(
         this.templatePath('global/_tsdconfig.json'),
@@ -186,7 +193,7 @@ module.exports = yeoman.generators.Base.extend({
       
       this.fs.copyTpl(
         this.templatePath('source/_main.d.ts'),
-        this.destinationPath('src/' + this.props.projectname + '.d.ts')
+        this.destinationPath('src/project.d.ts')
       );
       
       if(this.props.issass) {
