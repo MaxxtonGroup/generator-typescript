@@ -75,7 +75,7 @@ gulp.task('test', ['compile'], function() {
 		karma.server({
 			'singleRun': false,
 			'quit': true,
-			'frameworks': ['mocha', 'chai'],
+			'frameworks': ['mocha', 'chai', 'sinon'],
       'browsers': ['Chrome'],
 				'reporters': ['progress', 'coverage'],
 				'preprocessors': { <% if (projecttype === "app") { %>'public/assets/js/<%= projectname %>.js'<% } else { %>'dist/<%= projectname %>.js'<% } %>: ['coverage'] },
@@ -89,7 +89,7 @@ gulp.task('test-watch', ['test'], function() {
 		gulp.src(config.karmafiles, {"read": false}).pipe(
 			karma.runner({
 				'singleRun': false,
-				'frameworks': ['mocha', 'chai'],
+				'frameworks': ['mocha', 'chai', 'sinon'],
 				'browsers': ['Chrome'],
 				'reporters': ['progress', 'coverage'],
 				'preprocessors': { <% if (projecttype === "app") { %>'public/assets/js/<%= projectname %>.js'<% } else { %>'dist/<%= projectname %>.js'<% } %>: ['coverage'] },
