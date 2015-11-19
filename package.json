@@ -31,9 +31,5 @@
     "gulp-nsp": "^2.1.0"
   },
   "repository": "Maxxton Group/generator-typescript",
-  "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp"
-  },
   "license": "MIT"
 }

@@ -1,33 +1,40 @@
-# generator-typescript [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# Typescript Generator
 > A generator for typescript + angular2 projects
 
-## Installation
+## Getting Started
 
-First, install [Yeoman](http://yeoman.io) and generator-typescript using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+### What is Yeoman?
+
+Trick question. It's not a thing. It's this guy:
+
+![](http://i.imgur.com/JHaAlBJ.png)
+
+Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
+
+Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
 
 ```bash
 npm install -g yo
-npm install -g generator-typescript
 ```
 
-Then generate your new project:
+### Install and run the generator
 
+1. checkout this repository
+2. open a console (cmd, bash, terminal, etc)
+3. call:
 ```bash
-yo generator-typescript
+npm link
+npm install
 ```
-
-## Getting To Know Yeoman
-
-Yeoman has a heart of gold. He&#39;s a person with feelings and opinions, but he&#39;s very easy to work with. If you think he&#39;s too opinionated, he can be easily convinced. Feel free to [learn more about him](http://yeoman.io/).
+4. create a directory for your new project
+5. go to that directory in your console
+6. initiate Yeoman:
+```bash
+yo typescript
+```
+7. answer all the questions
+8. start coding with your new project
 
 ## License
 
-MIT © [R. Hermans]()
-
-
-[npm-image]: https://badge.fury.io/js/generator-typescript.svg
-[npm-url]: https://npmjs.org/package/generator-typescript
-[travis-image]: https://travis-ci.org/Maxxton Group/generator-typescript.svg?branch=master
-[travis-url]: https://travis-ci.org/Maxxton Group/generator-typescript
-[daviddm-image]: https://david-dm.org/Maxxton Group/generator-typescript.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/Maxxton Group/generator-typescript
+MIT
