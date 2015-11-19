@@ -1,4 +1,4 @@
-# <%= projectname %>
+# <%= projectName %>
 
 Simple description placeholder.
 

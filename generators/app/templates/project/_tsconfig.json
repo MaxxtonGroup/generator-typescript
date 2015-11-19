@@ -1,0 +1,7 @@
+{
+  "experimentalDecorators": true,
+  "emitDecoratorMetadata": true,
+  "sortOutput": true,
+  "target": "es5",
+  "module": "commonjs"
+}

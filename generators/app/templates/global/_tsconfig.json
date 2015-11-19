@@ -1,7 +1,0 @@
-{
-	"compilerOptions": {
-		"target": "ES5",
-		"declaration": true,
-		"out": "<%= projectname %>.js"
-	}
-}

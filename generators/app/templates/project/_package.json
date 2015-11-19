@@ -1,0 +1,22 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "description": "New Maxxton project",
+  "author": "<%= authorName %> <%= authorEmail %>",
+  "repository": "unknown",
+  "license": "MIT",
+  "dependencies": {
+    "angular2": ">=2.0.0-alpha.46",
+    "systemjs": ">=0.19.6",
+    "foundation-apps": ">=1.1.0"
+  },
+  "devDependencies": {
+    "gulp": ">=3.9.0",
+    "gulp-typescript": ">=2.9.2",
+    "gulp-sourcemaps": ">=1.6.0",
+    "gulp-live-server": ">=0.0.29",
+    "gulp-angular-embed-templates": ">=0.1.6",
+    "gulp-sass": ">=2.1.0",
+    "gulp-clean": ">=0.3.1"
+  }
+}
