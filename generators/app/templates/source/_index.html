@@ -13,7 +13,11 @@
   <script src="angular2/bundles/http.dev.js"></script>
   <script>
     System.config({
-      packages: {'': {defaultExtension: 'js'}}
+      packages: {
+        'components': {defaultExtension: 'js'},
+        'filters': {defaultExtension: 'js'},
+        'services': {defaultExtension: 'js'}
+      }
     });
     System.import('<%= projectName %>.js')
   </script>
