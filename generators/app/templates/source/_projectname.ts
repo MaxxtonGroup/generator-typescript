@@ -1,13 +1,14 @@
-import {bootstrap, Component, View} from 'angular2/angular2';
-import {MyComponent} from "./components/mycomponent/mycomponent";
+import {bootstrap} from 'angular2/platform/browser'
+import {MyComponent} from './components/mycomponent/mycomponent'
+import {Type} from "angular2/core";
+import {Component} from "angular2/core";
 
+//For some reason Intellij throws errors if the component does not have in front of it.
 @Component({
-  selector: '<%= projectName %>'
-})
-@View({
-  directives: [MyComponent],
+  selector: '<%= projectName %>',
+  directives: [<Type>MyComponent],
   templateUrl: '<%= projectName %>.tpl.html'
 })
-class <%= className %>{}
+export class <%= className %>{}
 
-bootstrap(<%= className %>, []);
+bootstrap(<Type><%= className %>);

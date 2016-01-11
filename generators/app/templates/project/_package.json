@@ -1,22 +1,28 @@
 {
-  "name": "auth-module",
+  "name": "<%= projectName %>",
   "version": "0.0.1",
   "description": "New Maxxton project",
-  "author": "R. Hermans r.hermans@maxxton.com",
+  "author": "<%= authorName %> <%= authorEmail %>",
   "repository": "unknown",
   "license": "MIT",
   "dependencies": {
-    "angular2": ">=2.0.0-alpha.46",
-    "systemjs": ">=0.19.6"
+    "angular2": "2.0.0-beta.0",
+    "systemjs": "0.19.6",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.10"
   },
   "devDependencies": {
-    "gulp": ">=3.9.0",
-    "gulp-typescript": ">=2.9.2",
-    "gulp-sourcemaps": ">=1.6.0",
-    "gulp-live-server": ">=0.0.29",
-    "gulp-angular-embed-templates": ">=0.1.6",
-    "gulp-sass": ">=2.1.0",
-    "merge2": ">=0.3.6",
-    "gulp-clean": ">=0.3.1"
+    "typescript": "^1.7.3",
+    "gulp": "^3.9.0",
+    "gulp-typescript": "^2.10.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-live-server": "^0.0.29",
+    "gulp-angular-embed-templates": "^1.1.0",
+    "gulp-sass": "^2.1.1",
+    "merge2": "^0.3.6",
+    "gulp-rimraf": "^0.2.0"
   }
 }

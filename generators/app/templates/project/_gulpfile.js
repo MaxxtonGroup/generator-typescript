@@ -7,7 +7,7 @@ var liveServer = require('gulp-live-server');
 var embedTemplates = require('gulp-angular-embed-templates');
 var sass = require('gulp-sass');
 var merge = require('merge2');
-var clean = require('gulp-clean');
+var clean = require('gulp-rimraf');
 
 var tsconfig = require('./tsconfig.json');
 

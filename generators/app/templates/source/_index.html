@@ -4,22 +4,27 @@
   <meta charset="UTF-8">
   <title><%= projectName %> Application</title>
   <link type="text/css" href="assets/css/style.css">
-</head>
-<body>
-  <<%= projectName %>></<%= projectName %>>
 
+  <script src="angular2/bundles/angular2-polyfills.js"></script>
   <script src="systemjs/dist/system.src.js"></script>
+  <script src="rxjs/bundles/Rx.js"></script>
   <script src="angular2/bundles/angular2.dev.js"></script>
-  <script src="angular2/bundles/http.dev.js"></script>
+  <script src="es6-shim/es6-shim.js"></script>
+
   <script>
     System.config({
       packages: {
-        'components': {defaultExtension: 'js'},
-        'filters': {defaultExtension: 'js'},
-        'services': {defaultExtension: 'js'}
+        'components': {format: 'register', defaultExtension: 'js'},
+        'filters': {format: 'register', defaultExtension: 'js'},
+        'services': {format: 'register', defaultExtension: 'js'}
       }
     });
-    System.import('<%= projectName %>.js')
+    System.import('<%= projectName %>.js').then(null, console.error.bind(console));
   </script>
+
+</head>
+<body>
+  <<%= projectName %>></<%= projectName %>>
 </body>
 </html>
+

@@ -1,11 +1,9 @@
-import {Component, View} from 'angular2/angular2';
+import {Component} from "angular2/core";
 
 @Component({
-  selector: 'my-component'
-})
-@View({
+  selector: 'my-component',
   templateUrl: 'mycomponent.tpl.html'
 })
-export class MyComponent{
-  text: string = "Peter";
+export class MyComponent {
+  name: string = "Harry Potter";
 }
